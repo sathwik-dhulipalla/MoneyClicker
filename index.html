@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Money Clicker</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #1e7a1e;
+    font-family: Arial, sans-serif;
+}
+
+/* HARD COVER FOR SCRATCH TOP BAR */
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 120px;
+    width: 100%;
+    background: #145214;
+    z-index: 20;
+}
+
+/* MARQUEE */
+marquee {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    background: #2e8b2e;
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+/* BUTTON BAR */
+.controls {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    background: #1b5e20;
+    z-index: 21;
+}
+
+button {
+    background: #0f3d0f;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0b2c0b;
+}
+
+/* GAME */
+.game {
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    height: calc(100vh - 140px);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* POPUPS */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 50;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCRATCH COVER -->
+<div class="cover">
+    <marquee>💰 MONEY CLICKER 💰 MONEY CLICKER 💰 MONEY CLICKER 💰</marquee>
+
+    <div class="controls">
+        <button onclick="openLeaderboard()">Leaderboard</button>
+        <button onclick="openHelp()">Need Help?</button>
+    </div>
+</div>
+
+<!-- GAME -->
+<div class="game">
+    <iframe src="https://scratch.mit.edu/projects/1268723038/embed"></iframe>
+</div>
+
+<!-- LEADERBOARD -->
+<div class="popup" id="leaderboard">
+    <div class="popup-box">
+        <h2>💰 Money Leaderboard</h2>
+        <div class="row"><span>John</span><span>3409 ∞</span></div>
+        <div class="row"><span>Mark</span><span>2046 ∞</span></div>
+        <div class="row"><span>Amy</span><span>1095 ∞</span></div>
+        <div class="row"><span>Ishaan</span><span>358 ∞</span></div>
+        <div class="row"><span>Arya</span><span>200 ∞</span></div>
+    </div>
+</div>
+
+<!-- HELP -->
+<div class="popup" id="help">
+    <div class="popup-box">
+        <iframe id="yt"
+            width="100%"
+            height="200"
+            allow="autoplay"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<script>
+function openLeaderboard() {
+    const box = document.getElementById("leaderboard");
+    box.style.display = "flex";
+    setTimeout(() => box.style.display = "none", 10000);
+}
+
+function openHelp() {
+    const box = document.getElementById("help");
+    const vid = document.getElementById("yt");
+
+    vid.src = "https://www.youtube.com/embed/Aq5WXmQQooo?autoplay=1";
+    box.style.display = "flex";
+
+    setTimeout(() => {
+        vid.src = "";
+        box.style.display = "none";
+    }, 10000);
+}
+</script>
+
+</body>
+</html>
