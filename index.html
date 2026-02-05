@@ -121,12 +121,6 @@
             <tr><td>UK</td><td>640</td></tr>
         </table>
 
-        <h3>Why this matters</h3>
-        <ul>
-            <li>Shows popularity</li>
-            <li>Uses a table</li>
-            <li>Meets checklist</li>
-        </ul>
     </div>
 </div>
 
@@ -168,11 +162,19 @@ function closeYouTube() {
     iframe.src = "";
     container.style.display = 'none';
 }
+    function openHelp(){
+        let box=document.getElementById("helpBox");
+        box.style.display="flex";
+        setTimeout(()=>box.style.display="none",10000);
+    }
+
     function openCountries(){
         let box=document.getElementById("countryBox");
         box.style.display="flex";
         setTimeout(()=>box.style.display="none",10000);
     }
+
+
 </script>
 
 </body>
